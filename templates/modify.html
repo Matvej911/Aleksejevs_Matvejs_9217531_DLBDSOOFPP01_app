@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Habit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Modify Habit</h1>
+        {% if modify_message %}
+        <p>{{ modify_message }}</p>
+        {% endif %}
+        <form action="/modify" method="post">
+            <label for="name">Select Habit:</label>
+            <select id="name" name="name">
+                {% for habit in habits %}
+                <option value="{{ habit[1] }}">{{ habit[1] }}</option>
+                {% endfor %}
+            </select><br>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required><br>
+            <label for="repeat">Repeat:</label>
+            <select id="repeat" name="repeat">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select><br>
+            <button type="submit" class="button">Modify Habit</button>
+        </form>
+        <a href="/" class="button">Back</a>
+    </div>
+</body>
+</html>

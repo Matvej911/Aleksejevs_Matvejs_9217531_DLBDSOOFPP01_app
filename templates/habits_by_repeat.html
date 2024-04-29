@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habits by Repeat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Habits by Repeat</h1>
+        <form action="/habits_by_repeat" method="post">
+            <label for="repeat">Choose Repeat:</label>
+            <select name="repeat" id="repeat">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+            <input type="submit" value="Show Habits">
+        </form>
+        
+        {% if habits %}
+        <h2>Habits</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Habit Name</th>
+                    <th>Specification</th>
+                    <th>Period</th>
+                    <th>Creation</th>
+                    <th>Current Streak</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for habit in habits %}
+                <tr>
+                    <td>{{ habit[1] }}</td>
+                    <td>{{ habit[2] }}</td>
+                    <td>{{ habit[3] }}</td>
+                    <td>{{ habit[4] }}</td>
+                    <td>{{ habit[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        
+        <a href="/" class="button">Back</a>
+    </div>
+</body>
+</html>

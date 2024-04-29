@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Off Habit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Check Off Habit</h1>
+        <form action="/check_off" method="post">
+            <label for="habit">Select Habit:</label><br>
+            <select id="habit" name="name">
+                {% for habit in habits %}
+                    <option value="{{ habit[1] }}">{{ habit[1] }}</option>
+                {% endfor %}
+            </select><br>
+            <input type="submit" value="Done">
+        </form>
+        {% for message in check_messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        <a href="/" class="button">Back</a>
+    </div>
+</body>
+</html>

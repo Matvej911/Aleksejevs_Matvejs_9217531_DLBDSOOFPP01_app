@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Habits</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>All Habits</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Habit Name</th>
+                    <th>Specification</th>
+                    <th>Period</th>
+                    <th>Creation</th>
+                    <th>Current Streak</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for habit in habits %}
+                <tr>
+                    <td>{{ habit[1] }}</td>
+                    <td>{{ habit[2] }}</td>
+                    <td>{{ habit[3] }}</td>
+                    <td>{{ habit[4] }}</td>
+                    <td>{{ habit[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="button">Back</a>
+    </div>
+</body>
+</html>

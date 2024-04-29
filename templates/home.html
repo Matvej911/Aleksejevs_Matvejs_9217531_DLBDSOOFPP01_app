@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Habit Tracker</h1>
+        <div class="button-container">
+            <a href="/create" class="button">Create</a>
+            <a href="/modify" class="button">Modify</a>
+            <a href="/check_off" class="button">Check off</a>
+            <a href="/analyse" class="button">Analyse</a>
+            <a href="/remove" class="button">Remove</a>
+        </div>
+    </div>
+</body>
+</html>

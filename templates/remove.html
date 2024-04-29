@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Habit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Remove Habit</h1>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <form action="/remove" method="post">
+            <label for="name">Name of Habit to Remove:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <input type="submit" value="Remove Habit">
+        </form>
+        <a href="/" class="button">Back</a>
+    </div>
+</body>
+</html>
+
